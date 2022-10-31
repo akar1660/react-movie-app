@@ -43,7 +43,7 @@ export const createUser = async (email, password, navigate, displayName) => {
       email,
       password
     );
-    //? To update firebase method
+    //? To update user's profile we use this firebase method
     await updateProfile(auth.currentUser, {
       displayName: displayName,
     });

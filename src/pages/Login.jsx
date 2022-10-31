@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signIn } from '../auth/firebase'
+import { signIn, signUpProvider } from '../auth/firebase'
 const Login = () => {
 
   const [email, setEmail] = useState()
@@ -10,6 +10,10 @@ const Login = () => {
     e.preventDefault();
     signIn(email,password, navigate)
     // console.log(email, password);
+  }
+
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
   }
   
   return (
@@ -33,7 +37,7 @@ const Login = () => {
             <input type="submit" className='btn btn-primary form-control' value="Login"/>
           </div>
         </form>
-        <button className="btn btn-primary form-control">Continue with Google</button>
+        <button className="btn btn-primary form-control" onClick={handleProviderLogin}>Continue with Google</button>
         
 
       </div>
